@@ -1,0 +1,53 @@
+fileFormatVersion: 2
+guid: c97dcbc602f327e46b1ee013e7dc695a
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - bullet01: {instanceID: 0}
+  - bullet02: {instanceID: 0}
+  - bullet03: {instanceID: 0}
+  - bullet04: {instanceID: 0}
+  - bullet05: {instanceID: 0}
+  - bullet06: {instanceID: 0}
+  - bullet07: {instanceID: 0}
+  - bullet08: {instanceID: 0}
+  - bullet09: {instanceID: 0}
+  - bullet10: {instanceID: 0}
+  - bullet11: {instanceID: 0}
+  - bullet12: {instanceID: 0}
+  - bullet13: {instanceID: 0}
+  - bullet14: {instanceID: 0}
+  - bullet15: {instanceID: 0}
+  - bullet16: {instanceID: 0}
+  - bullet17: {instanceID: 0}
+  - bullet18: {instanceID: 0}
+  - bullet19: {instanceID: 0}
+  - bullet20: {instanceID: 0}
+  - bullet21: {instanceID: 0}
+  - bullet22: {instanceID: 0}
+  - bullet23: {instanceID: 0}
+  - bullet24: {instanceID: 0}
+  - bullet25: {instanceID: 0}
+  - bullet26: {instanceID: 0}
+  - bullet27: {instanceID: 0}
+  - bullet28: {instanceID: 0}
+  - bullet29: {instanceID: 0}
+  - bullet30: {instanceID: 0}
+  - skillBullet: {instanceID: 0}
+  - portal01: {instanceID: 0}
+  - powerUpItem: {instanceID: 0}
+  - coinItem: {instanceID: 0}
+  - UFO01: {instanceID: 0}
+  - UFO02: {instanceID: 0}
+  - UFO03: {instanceID: 0}
+  - UFO04: {instanceID: 0}
+  - pcExplo: {instanceID: 0}
+  - ufoAttacked: {instanceID: 0}
+  - skillFull: {instanceID: 0}
+  - skilShot: {instanceID: 0}
+  - ufoExplo: {instanceID: 0}
+  - warmholeAppear: {instanceID: 0}
+  - warmholeAttacked: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
