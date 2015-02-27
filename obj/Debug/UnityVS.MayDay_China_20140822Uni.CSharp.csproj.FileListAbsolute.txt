@@ -1,0 +1,13 @@
+C:\Users\Administrator\Documents\MayDay_China_20140822Uni\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll
+C:\Users\Administrator\Documents\MayDay_China_20140822Uni\Temp\UnityVS_bin\Debug\Assembly-CSharp.pdb
+C:\Users\Administrator\Documents\MayDay_China_20140822Uni\Temp\UnityVS_bin\Debug\Assembly-UnityScript-firstpass.dll
+C:\Users\Administrator\Documents\MayDay_China_20140822Uni\Temp\UnityVS_bin\Debug\Glow11.dll
+C:\Users\Administrator\Documents\MayDay_China_20140822Uni\Temp\UnityVS_bin\Debug\UnityEditor.dll
+C:\Users\Administrator\Documents\MayDay_China_20140822Uni\Temp\UnityVS_bin\Debug\UnityEngine.dll
+C:\Users\Administrator\Documents\MayDay_China_20140822Uni\Temp\UnityVS_bin\Debug\Assembly-CSharp-firstpass.pdb
+C:\Users\Administrator\Documents\MayDay_China_20140822Uni\Temp\UnityVS_bin\Debug\UnityEngine.xml
+C:\Users\Administrator\Documents\MayDay_China_20140822Uni\Temp\UnityVS_bin\Debug\UnityEditor.xml
+C:\Users\Administrator\Documents\MayDay_China_20140822Uni\obj\Debug\UnityVS.MayDay_China_20140822Uni.CSharp.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\MayDay_China_20140822Uni\obj\Debug\Assembly-CSharp.dll
+C:\Users\Administrator\Documents\MayDay_China_20140822Uni\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Administrator\Documents\MayDay_China_20140822Uni\Temp\UnityVS_bin\Debug\IFacebook.dll
