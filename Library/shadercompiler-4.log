@@ -1,0 +1,337 @@
+Base path: C:/Program Files (x86)/Unity/Editor/Data
+Pipe name: \\.\pipe\UnityShaderCompiler-4-10256
+Cmd: getPlatforms
+Cmd: compileSnippet
+  api=9 type=0 insize=4281 outsize=2855 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=4281 outsize=1721 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=4281 outsize=3938 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF VERTEXLIGHT_ON ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=4281 outsize=1633 kw=DIRECTIONAL SHADOWS_SCREEN SHADOWS_NATIVE LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=4281 outsize=1744 kw=DIRECTIONAL SHADOWS_SCREEN SHADOWS_NATIVE LIGHTMAP_ON DIRLIGHTMAP_ON ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=4281 outsize=6 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=4281 outsize=6 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_ON DIRLIGHTMAP_ON ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=4281 outsize=6 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=4281 outsize=7 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=2257 outsize=1994 kw=POINT ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=2257 outsize=2095 kw=POINT_COOKIE ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=2257 outsize=1829 kw=DIRECTIONAL_COOKIE ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=2257 outsize=6 kw=DIRECTIONAL ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=2257 outsize=6 kw=POINT_COOKIE ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=2257 outsize=6 kw=DIRECTIONAL_COOKIE ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=3998 outsize=2886 kw=LIGHTMAP_ON DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=3998 outsize=3288 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_ON ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=3998 outsize=1955 kw=LIGHTMAP_ON DIRLIGHTMAP_ON HDR_LIGHT_PREPASS_ON ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=3998 outsize=7 kw=LIGHTMAP_ON DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=3998 outsize=6 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_ON ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=3998 outsize=7 kw=LIGHTMAP_ON DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_ON ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=3998 outsize=7 kw=LIGHTMAP_ON DIRLIGHTMAP_ON HDR_LIGHT_PREPASS_ON ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=609 outsize=788 kw=SHADOWS_CUBE ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=609 outsize=6 kw=SHADOWS_DEPTH ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=694 outsize=2745 kw=SHADOWS_NATIVE ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=694 outsize=7 kw=SHADOWS_NATIVE ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=1999 outsize=1322 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=1534 outsize=748 kw=SOFTPARTICLES_OFF ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=1534 outsize=7 kw=SOFTPARTICLES_OFF ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=1537 outsize=1774 kw=SOFTPARTICLES_ON ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=1537 outsize=7 kw=SOFTPARTICLES_ON ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=942 outsize=631 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=6756 outsize=4708 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=6756 outsize=2307 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=6756 outsize=6623 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF VERTEXLIGHT_ON ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=6756 outsize=2403 kw=DIRECTIONAL SHADOWS_SCREEN SHADOWS_NATIVE LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=6756 outsize=7 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=6756 outsize=6 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=4402 outsize=2275 kw=DIRECTIONAL ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=4402 outsize=3074 kw=SPOT ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=4402 outsize=7 kw=POINT ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=4402 outsize=7 kw=SPOT ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=4402 outsize=6 kw=DIRECTIONAL_COOKIE ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=6367 outsize=4435 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=6367 outsize=4046 kw=LIGHTMAP_ON DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_ON ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=6367 outsize=7 kw=LIGHTMAP_ON DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=6367 outsize=6 kw=LIGHTMAP_ON DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_ON ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=1041 outsize=928 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=2398 outsize=1745 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=2398 outsize=7 kw= ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=2399 outsize=1761 kw= ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=2399 outsize=6 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=2403 outsize=1794 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=2403 outsize=7 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=2403 outsize=1794 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=2403 outsize=7 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=1322 outsize=1465 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=1322 outsize=7 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=1389 outsize=1679 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=1389 outsize=7 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=808 outsize=827 kw=GLOW11_GLOW_MAINTEX NO_MULTIPLY ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=808 outsize=855 kw=GLOW11_GLOW_MAINTEX GLOW11_MULTIPLY_VERT_ALPHA ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=808 outsize=1101 kw=GLOW11_GLOW_MAINTEX GLOW11_MULTIPLY_ILLUMTEX_ALPHA ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=808 outsize=556 kw=GLOW11_MULTIPLY_GLOWCOLOR GLOW11_GLOW_MAINCOLOR ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=808 outsize=591 kw=GLOW11_MULTIPLY_VERT GLOW11_GLOW_MAINCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=808 outsize=745 kw=GLOW11_MULTIPLY_MAINTEX_ALPHA GLOW11_GLOW_MAINCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=808 outsize=848 kw=GLOW11_MULTIPLY_GLOWCOLOR GLOW11_GLOW_GLOWTEX ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=808 outsize=855 kw=GLOW11_MULTIPLY_VERT_ALPHA GLOW11_GLOW_GLOWTEX ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=808 outsize=1050 kw=GLOW11_MULTIPLY_MAINTEX_ALPHA GLOW11_GLOW_GLOWTEX ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=808 outsize=843 kw=GLOW11_MULTIPLY_VERT GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=808 outsize=854 kw=GLOW11_MULTIPLY_ILLUMTEX_ALPHA GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=808 outsize=534 kw=GLOW11_MULTIPLY_GLOWCOLOR GLOW11_GLOW_GLOWCOLOR ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=808 outsize=601 kw=GLOW11_MULTIPLY_VERT_ALPHA GLOW11_GLOW_GLOWCOLOR ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=808 outsize=784 kw=GLOW11_MULTIPLY_MAINTEX_ALPHA GLOW11_GLOW_GLOWCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=808 outsize=469 kw=GLOW11_MULTIPLY_VERT GLOW11_GLOW_VERTEXCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=808 outsize=776 kw=GLOW11_MULTIPLY_ILLUMTEX_ALPHA GLOW11_GLOW_VERTEXCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=808 outsize=6 kw=GLOW11_GLOW_MAINTEX GLOW11_MULTIPLY_GLOWCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=808 outsize=6 kw=GLOW11_GLOW_MAINTEX GLOW11_MULTIPLY_VERT_ALPHA ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=808 outsize=6 kw=GLOW11_GLOW_MAINTEX GLOW11_MULTIPLY_ILLUMTEX_ALPHA ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=808 outsize=7 kw=NO_MULTIPLY GLOW11_GLOW_MAINCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=808 outsize=6 kw=GLOW11_MULTIPLY_MAINTEX_ALPHA GLOW11_GLOW_MAINCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=808 outsize=6 kw=NO_MULTIPLY GLOW11_GLOW_GLOWTEX ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=808 outsize=6 kw=GLOW11_MULTIPLY_VERT GLOW11_GLOW_GLOWTEX ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=808 outsize=7 kw=GLOW11_MULTIPLY_ILLUMTEX_ALPHA GLOW11_GLOW_GLOWTEX ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=808 outsize=7 kw=GLOW11_MULTIPLY_GLOWCOLOR GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=808 outsize=6 kw=GLOW11_MULTIPLY_VERT GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=808 outsize=7 kw=GLOW11_MULTIPLY_VERT_ALPHA GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=808 outsize=7 kw=GLOW11_MULTIPLY_MAINTEX_ALPHA GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=808 outsize=6 kw=NO_MULTIPLY GLOW11_GLOW_VERTEXCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=808 outsize=6 kw=GLOW11_MULTIPLY_VERT_ALPHA GLOW11_GLOW_VERTEXCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=808 outsize=6 kw=GLOW11_MULTIPLY_ILLUMTEX_ALPHA GLOW11_GLOW_VERTEXCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=812 outsize=927 kw=GLOW11_GLOW_MAINTEX GLOW11_MULTIPLY_GLOWCOLOR ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=812 outsize=946 kw=GLOW11_GLOW_MAINTEX GLOW11_MULTIPLY_VERT_ALPHA ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=812 outsize=967 kw=GLOW11_GLOW_MAINTEX GLOW11_MULTIPLY_MAINTEX_ALPHA ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=812 outsize=886 kw=GLOW11_MULTIPLY_GLOWCOLOR GLOW11_GLOW_MAINCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=812 outsize=1102 kw=GLOW11_MULTIPLY_ILLUMTEX_ALPHA GLOW11_GLOW_MAINCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=812 outsize=1118 kw=GLOW11_MULTIPLY_GLOWCOLOR GLOW11_GLOW_GLOWTEX ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=812 outsize=1126 kw=GLOW11_MULTIPLY_VERT_ALPHA GLOW11_GLOW_GLOWTEX ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=812 outsize=1146 kw=GLOW11_MULTIPLY_MAINTEX_ALPHA GLOW11_GLOW_GLOWTEX ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=812 outsize=1108 kw=GLOW11_MULTIPLY_GLOWCOLOR GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=812 outsize=1115 kw=GLOW11_MULTIPLY_VERT_ALPHA GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=812 outsize=1136 kw=GLOW11_MULTIPLY_MAINTEX_ALPHA GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=812 outsize=864 kw=GLOW11_MULTIPLY_GLOWCOLOR GLOW11_GLOW_GLOWCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=812 outsize=1110 kw=GLOW11_MULTIPLY_ILLUMTEX_ALPHA GLOW11_GLOW_GLOWCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=812 outsize=852 kw=GLOW11_MULTIPLY_GLOWCOLOR GLOW11_GLOW_VERTEXCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=812 outsize=823 kw=GLOW11_MULTIPLY_VERT_ALPHA GLOW11_GLOW_VERTEXCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=812 outsize=867 kw=GLOW11_MULTIPLY_MAINTEX_ALPHA GLOW11_GLOW_VERTEXCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=812 outsize=6 kw=GLOW11_GLOW_MAINTEX GLOW11_MULTIPLY_GLOWCOLOR ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=812 outsize=7 kw=GLOW11_GLOW_MAINTEX GLOW11_MULTIPLY_VERT ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=812 outsize=7 kw=GLOW11_GLOW_MAINTEX GLOW11_MULTIPLY_ILLUMTEX_ALPHA ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=812 outsize=6 kw=GLOW11_MULTIPLY_GLOWCOLOR GLOW11_GLOW_MAINCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=812 outsize=6 kw=GLOW11_MULTIPLY_VERT_ALPHA GLOW11_GLOW_MAINCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=812 outsize=6 kw=GLOW11_MULTIPLY_MAINTEX_ALPHA GLOW11_GLOW_MAINCOLOR ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=812 outsize=7 kw=GLOW11_MULTIPLY_GLOWCOLOR GLOW11_GLOW_GLOWTEX ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=812 outsize=7 kw=GLOW11_MULTIPLY_VERT_ALPHA GLOW11_GLOW_GLOWTEX ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=812 outsize=7 kw=GLOW11_MULTIPLY_MAINTEX_ALPHA GLOW11_GLOW_GLOWTEX ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=812 outsize=6 kw=GLOW11_MULTIPLY_GLOWCOLOR GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=812 outsize=6 kw=GLOW11_MULTIPLY_VERT_ALPHA GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=812 outsize=6 kw=GLOW11_MULTIPLY_MAINTEX_ALPHA GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=812 outsize=7 kw=NO_MULTIPLY GLOW11_GLOW_GLOWCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=812 outsize=6 kw=GLOW11_MULTIPLY_VERT_ALPHA GLOW11_GLOW_GLOWCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=812 outsize=6 kw=GLOW11_MULTIPLY_MAINTEX_ALPHA GLOW11_GLOW_GLOWCOLOR ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=812 outsize=7 kw=NO_MULTIPLY GLOW11_GLOW_VERTEXCOLOR ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=812 outsize=7 kw=GLOW11_MULTIPLY_GLOWCOLOR GLOW11_GLOW_VERTEXCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=812 outsize=6 kw=GLOW11_MULTIPLY_VERT_ALPHA GLOW11_GLOW_VERTEXCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=812 outsize=6 kw=GLOW11_MULTIPLY_MAINTEX_ALPHA GLOW11_GLOW_VERTEXCOLOR ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=848 outsize=951 kw=GLOW11_GLOW_MAINTEX GLOW11_MULTIPLY_GLOWCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=848 outsize=934 kw=GLOW11_GLOW_MAINTEX GLOW11_MULTIPLY_VERT_ALPHA ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=848 outsize=943 kw=GLOW11_GLOW_MAINTEX GLOW11_MULTIPLY_MAINTEX_ALPHA ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=848 outsize=862 kw=GLOW11_MULTIPLY_GLOWCOLOR GLOW11_GLOW_MAINCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=848 outsize=1102 kw=GLOW11_MULTIPLY_ILLUMTEX_ALPHA GLOW11_GLOW_MAINCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=848 outsize=1073 kw=NO_MULTIPLY GLOW11_GLOW_GLOWTEX ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=848 outsize=1124 kw=GLOW11_MULTIPLY_VERT GLOW11_GLOW_GLOWTEX ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=848 outsize=1063 kw=NO_MULTIPLY GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=848 outsize=1114 kw=GLOW11_MULTIPLY_VERT GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=848 outsize=1137 kw=GLOW11_MULTIPLY_ILLUMTEX_ALPHA GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=848 outsize=875 kw=GLOW11_MULTIPLY_VERT GLOW11_GLOW_GLOWCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=848 outsize=1110 kw=GLOW11_MULTIPLY_ILLUMTEX_ALPHA GLOW11_GLOW_GLOWCOLOR ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=848 outsize=819 kw=NO_MULTIPLY GLOW11_GLOW_VERTEXCOLOR ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=848 outsize=833 kw=GLOW11_MULTIPLY_VERT GLOW11_GLOW_VERTEXCOLOR ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=848 outsize=879 kw=GLOW11_MULTIPLY_MAINTEX_ALPHA GLOW11_GLOW_VERTEXCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=848 outsize=6 kw=GLOW11_GLOW_MAINTEX NO_MULTIPLY ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=848 outsize=7 kw=GLOW11_GLOW_MAINTEX GLOW11_MULTIPLY_VERT_ALPHA ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=848 outsize=6 kw=GLOW11_GLOW_MAINTEX GLOW11_MULTIPLY_MAINTEX_ALPHA ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=848 outsize=7 kw=GLOW11_GLOW_MAINTEX GLOW11_MULTIPLY_MAINTEX_ALPHA ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=848 outsize=6 kw=GLOW11_MULTIPLY_GLOWCOLOR GLOW11_GLOW_MAINCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=848 outsize=6 kw=GLOW11_MULTIPLY_VERT_ALPHA GLOW11_GLOW_MAINCOLOR ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=848 outsize=7 kw=GLOW11_MULTIPLY_ILLUMTEX_ALPHA GLOW11_GLOW_MAINCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=848 outsize=6 kw=NO_MULTIPLY GLOW11_GLOW_GLOWTEX ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=848 outsize=6 kw=GLOW11_MULTIPLY_VERT GLOW11_GLOW_GLOWTEX ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=848 outsize=6 kw=GLOW11_MULTIPLY_ILLUMTEX_ALPHA GLOW11_GLOW_GLOWTEX ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=848 outsize=6 kw=NO_MULTIPLY GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=848 outsize=7 kw=NO_MULTIPLY GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=848 outsize=6 kw=GLOW11_MULTIPLY_VERT GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=848 outsize=6 kw=GLOW11_MULTIPLY_ILLUMTEX_ALPHA GLOW11_GLOW_ILLUMTEX ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=848 outsize=7 kw=NO_MULTIPLY GLOW11_GLOW_GLOWCOLOR ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=848 outsize=6 kw=GLOW11_MULTIPLY_VERT GLOW11_GLOW_GLOWCOLOR ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=848 outsize=7 kw=GLOW11_MULTIPLY_ILLUMTEX_ALPHA GLOW11_GLOW_GLOWCOLOR ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=848 outsize=7 kw=NO_MULTIPLY GLOW11_GLOW_VERTEXCOLOR ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=848 outsize=7 kw=GLOW11_MULTIPLY_VERT GLOW11_GLOW_VERTEXCOLOR ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=848 outsize=7 kw=GLOW11_MULTIPLY_ILLUMTEX_ALPHA GLOW11_GLOW_VERTEXCOLOR ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=1260 outsize=1014 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=1282 outsize=1276 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=973 outsize=7 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=1262 outsize=1016 kw= ok=1
+Unhandled exception: Readfile from pipe failed. GLE=파이프가 끝났습니다.
+
+
+Quitting shader compiler process
