@@ -520,6 +520,7 @@
     <Compile Include="Assets\UFTAtlasEditor\Resources\Scripts\Utils\UFTMeshUtil.cs" />
     <Compile Include="Assets\UFTAtlasEditor\Resources\Scripts\Utils\UFTTextureUtil.cs" />
     <Compile Include="Assets\UfoSeed.cs" />
+    <Compile Include="Assets\UiTestGameManager.cs" />
     <Compile Include="Assets\UpgradeAlarmShow.cs" />
     <Compile Include="Assets\WinController.cs" />
     <Compile Include="Assets\engineFxScript.cs" />

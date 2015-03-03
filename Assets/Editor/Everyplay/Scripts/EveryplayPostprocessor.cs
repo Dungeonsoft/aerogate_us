@@ -20,7 +20,7 @@ public static class EveryplayPostprocessor
         if(settings != null) {
             if(settings.IsEnabled) {
                 if(settings.IsValid) {
-                    if(target == BuildTarget.iPhone) {
+                    if(target == kBuildTargetIOS) {
                         PostProcessBuild_iOS(path, settings.clientId);
                     }
                     else if(target == BuildTarget.Android) {
@@ -29,8 +29,8 @@ public static class EveryplayPostprocessor
                 }
                 else {
                     Debug.LogError("Everyplay will be disabled because client id, client secret or redirect URI was not valid.");
-                    if(target == BuildTarget.iPhone) {
-                        SetEveryplayEnabledForTarget(BuildTargetGroup.iPhone, false);
+                    if(target == kBuildTargetIOS) {
+                        SetEveryplayEnabledForTarget(kBuildTargetGroupIOS, false);
                     }
                     else if(target == BuildTarget.Android) {
                         SetEveryplayEnabledForTarget(BuildTargetGroup.Android, false);
@@ -45,10 +45,10 @@ public static class EveryplayPostprocessor
     {
         EveryplayLegacyCleanup.Clean(false);
 
-        if(target == BuildTarget.iPhone || target == BuildTarget.Android) {
+        if(target == kBuildTargetIOS || target == BuildTarget.Android) {
             ValidateAndUpdateFacebook();
 
-            if(target == BuildTarget.iPhone) {
+            if(target == kBuildTargetIOS) {
                 FixUnityPlistAppendBug(path);
             }
         }
@@ -74,7 +74,7 @@ public static class EveryplayPostprocessor
         CreateEveryplayConfig(path);
         ProcessXCodeProject(path);
         ProcessInfoPList(path, clientId);
-        SetEveryplayEnabledForTarget(BuildTargetGroup.iPhone, true);
+        SetEveryplayEnabledForTarget(kBuildTargetGroupIOS, true);
     }
 
     private static void PostProcessBuild_Android(string path, string clientId)
@@ -477,7 +477,7 @@ public static class EveryplayPostprocessor
     {
         string targetDefine = "";
 
-        if(target == BuildTargetGroup.iPhone) {
+        if(target == kBuildTargetGroupIOS) {
             targetDefine = "EVERYPLAY_IPHONE";
         }
         else if(target == BuildTargetGroup.Android) {
@@ -717,4 +717,7 @@ public static class EveryplayPostprocessor
     private const string FacebookAppId = "182473845211109";
     private const string UrlSchemePrefixFB = "fb182473845211109ep";
     private const string UrlSchemePrefixEP = "ep";
+
+    private const BuildTarget kBuildTargetIOS = (BuildTarget)9; // Avoid automatic API updater dialog (iPhone -> iOS)
+    private const BuildTargetGroup kBuildTargetGroupIOS = (BuildTargetGroup)4; // Avoid automatic API updater dialog (iPhone -> iOS)
 }

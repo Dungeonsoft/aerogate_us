@@ -59,9 +59,15 @@ public class Everyplay : MonoBehaviour
 
     public static event ThumbnailReadyAtFilePathDelegate ThumbnailReadyAtFilePath;
 
+    [Obsolete("Use ThumbnailTextureReadyDelegate(Texture2D texture,bool portrait) instead.")]
     public delegate void ThumbnailReadyAtTextureIdDelegate(int textureId,bool portrait);
 
+    [Obsolete("Use ThumbnailTextureReady instead.")]
     public static event ThumbnailReadyAtTextureIdDelegate ThumbnailReadyAtTextureId;
+
+    public delegate void ThumbnailTextureReadyDelegate(Texture2D texture,bool portrait);
+
+    public static event ThumbnailTextureReadyDelegate ThumbnailTextureReady;
 
     public delegate void UploadDidStartDelegate(int videoId);
 
@@ -583,6 +589,36 @@ public class Everyplay : MonoBehaviour
         }
     }
 
+    public static void FaceCamSetTargetTexture(Texture2D texture)
+    {
+        if(EveryplayInstance != null) {
+#if !UNITY_3_5
+            #if !UNITY_EDITOR
+            #if UNITY_IPHONE && EVERYPLAY_IPHONE
+            if(texture != null) {
+                EveryplayFaceCamSetTargetTexture(texture.GetNativeTexturePtr());
+                EveryplayFaceCamSetTargetTextureWidth(texture.width);
+                EveryplayFaceCamSetTargetTextureHeight(texture.height);
+            }
+            else {
+                EveryplayFaceCamSetTargetTexture(System.IntPtr.Zero);
+            }
+            #elif UNITY_ANDROID && EVERYPLAY_ANDROID
+            if(texture != null) {
+                EveryplayFaceCamSetTargetTextureId(texture.GetNativeTextureID());
+                EveryplayFaceCamSetTargetTextureWidth(texture.width);
+                EveryplayFaceCamSetTargetTextureHeight(texture.height);
+            }
+            else {
+                EveryplayFaceCamSetTargetTextureId(0);
+            }
+            #endif
+            #endif
+#endif
+        }
+    }
+
+    [Obsolete("Use FaceCamSetTargetTexture(Texture2D texture) instead.")]
     public static void FaceCamSetTargetTextureId(int textureId)
     {
         if(EveryplayInstance != null) {
@@ -592,6 +628,7 @@ public class Everyplay : MonoBehaviour
         }
     }
 
+    [Obsolete("Defining texture width is no longer required when FaceCamSetTargetTexture(Texture2D texture) is used.")]
     public static void FaceCamSetTargetTextureWidth(int textureWidth)
     {
         if(EveryplayInstance != null) {
@@ -601,6 +638,7 @@ public class Everyplay : MonoBehaviour
         }
     }
 
+    [Obsolete("Defining texture height is no longer required when FaceCamSetTargetTexture(Texture2D texture) is used.")]
     public static void FaceCamSetTargetTextureHeight(int textureHeight)
     {
         if(EveryplayInstance != null) {
@@ -637,6 +675,38 @@ public class Everyplay : MonoBehaviour
         }
     }
 
+    private static Texture2D currentThumbnailTargetTexture = null;
+    public static void SetThumbnailTargetTexture(Texture2D texture)
+    {
+        if(EveryplayInstance != null) {
+            currentThumbnailTargetTexture = texture;
+#if !UNITY_3_5
+            #if !UNITY_EDITOR
+            #if UNITY_IPHONE && EVERYPLAY_IPHONE
+            if(texture != null) {
+                EveryplaySetThumbnailTargetTexture(currentThumbnailTargetTexture.GetNativeTexturePtr());
+                EveryplaySetThumbnailTargetTextureWidth(currentThumbnailTargetTexture.width);
+                EveryplaySetThumbnailTargetTextureHeight(currentThumbnailTargetTexture.height);
+            }
+            else {
+                EveryplaySetThumbnailTargetTexture(System.IntPtr.Zero);
+            }
+            #elif UNITY_ANDROID && EVERYPLAY_ANDROID
+            if(texture != null) {
+                EveryplaySetThumbnailTargetTextureId(currentThumbnailTargetTexture.GetNativeTextureID());
+                EveryplaySetThumbnailTargetTextureWidth(currentThumbnailTargetTexture.width);
+                EveryplaySetThumbnailTargetTextureHeight(currentThumbnailTargetTexture.height);
+            }
+            else {
+                EveryplaySetThumbnailTargetTextureId(0);
+            }
+            #endif
+            #endif
+#endif
+        }
+    }
+
+    [Obsolete("Use SetThumbnailTargetTexture(Texture2D texture) instead.")]
     public static void SetThumbnailTargetTextureId(int textureId)
     {
         if(EveryplayInstance != null) {
@@ -646,6 +716,7 @@ public class Everyplay : MonoBehaviour
         }
     }
 
+    [Obsolete("Defining texture width is no longer required when SetThumbnailTargetTexture(Texture2D texture) is used.")]
     public static void SetThumbnailTargetTextureWidth(int textureWidth)
     {
         if(EveryplayInstance != null) {
@@ -655,6 +726,7 @@ public class Everyplay : MonoBehaviour
         }
     }
 
+    [Obsolete("Defining texture height is no longer required when SetThumbnailTargetTexture(Texture2D texture) is used.")]
     public static void SetThumbnailTargetTextureHeight(int textureHeight)
     {
         if(EveryplayInstance != null) {
@@ -677,77 +749,21 @@ public class Everyplay : MonoBehaviour
 
     private static void RemoveAllEventHandlers()
     {
-        if(WasClosed != null) {
-            foreach(Everyplay.WasClosedDelegate del in WasClosed.GetInvocationList()) {
-                WasClosed -= del;
-            }
-        }
-
-        if(ReadyForRecording != null) {
-            foreach(Everyplay.ReadyForRecordingDelegate del in ReadyForRecording.GetInvocationList()) {
-                ReadyForRecording -= del;
-            }
-        }
-
-        if(RecordingStarted != null) {
-            foreach(Everyplay.RecordingStartedDelegate del in RecordingStarted.GetInvocationList()) {
-                RecordingStarted -= del;
-            }
-        }
-
-        if(RecordingStopped != null) {
-            foreach(Everyplay.RecordingStoppedDelegate del in RecordingStopped.GetInvocationList()) {
-                RecordingStopped -= del;
-            }
-        }
-
-        if(FaceCamSessionStarted != null) {
-            foreach(Everyplay.FaceCamSessionStartedDelegate del in FaceCamSessionStarted.GetInvocationList()) {
-                FaceCamSessionStarted -= del;
-            }
-        }
-
-        if(FaceCamRecordingPermission != null) {
-            foreach(Everyplay.FaceCamRecordingPermissionDelegate del in FaceCamRecordingPermission.GetInvocationList()) {
-                FaceCamRecordingPermission -= del;
-            }
-        }
-
-        if(FaceCamSessionStopped != null) {
-            foreach(Everyplay.FaceCamSessionStoppedDelegate del in FaceCamSessionStopped.GetInvocationList()) {
-                FaceCamSessionStopped -= del;
-            }
-        }
-
-        if(ThumbnailReadyAtFilePath != null) {
-            foreach(Everyplay.ThumbnailReadyAtFilePathDelegate del in ThumbnailReadyAtFilePath.GetInvocationList()) {
-                ThumbnailReadyAtFilePath -= del;
-            }
-        }
-
-        if(ThumbnailReadyAtTextureId != null) {
-            foreach(Everyplay.ThumbnailReadyAtTextureIdDelegate del in ThumbnailReadyAtTextureId.GetInvocationList()) {
-                ThumbnailReadyAtTextureId -= del;
-            }
-        }
-
-        if(UploadDidStart != null) {
-            foreach(Everyplay.UploadDidStartDelegate del in UploadDidStart.GetInvocationList()) {
-                UploadDidStart -= del;
-            }
-        }
-
-        if(UploadDidProgress != null) {
-            foreach(Everyplay.UploadDidProgressDelegate del in UploadDidProgress.GetInvocationList()) {
-                UploadDidProgress -= del;
-            }
-        }
-
-        if(UploadDidComplete != null) {
-            foreach(Everyplay.UploadDidCompleteDelegate del in UploadDidComplete.GetInvocationList()) {
-                UploadDidComplete -= del;
-            }
-        }
+        WasClosed = null;
+        ReadyForRecording = null;
+        RecordingStarted = null;
+        RecordingStopped = null;
+        FaceCamSessionStarted = null;
+        FaceCamRecordingPermission = null;
+        FaceCamSessionStopped = null;
+        ThumbnailReadyAtFilePath = null;
+#pragma warning disable 612, 618
+        ThumbnailReadyAtTextureId = null;
+#pragma warning restore 612, 618
+        ThumbnailTextureReady = null;
+        UploadDidStart = null;
+        UploadDidProgress = null;
+        UploadDidComplete = null;
     }
 
     private static void AddTestButtons(GameObject gameObject) {
@@ -860,6 +876,10 @@ public class Everyplay : MonoBehaviour
 
     void OnApplicationQuit()
     {
+        if(currentThumbnailTargetTexture != null) {
+            SetThumbnailTargetTexture(null);
+            currentThumbnailTargetTexture = null;
+        }
         RemoveAllEventHandlers();
         appIsClosing = true;
         everyplayInstance = null;
@@ -876,13 +896,12 @@ public class Everyplay : MonoBehaviour
 
     private void EveryplayReadyForRecording(string jsonMsg)
     {
-        if(jsonMsg != null && jsonMsg.Length > 0) {
-            Dictionary<string,object> dict = Json.Deserialize(jsonMsg) as Dictionary<string,object>;
-            if(dict != null && dict.ContainsKey("enabled")) {
-                int enabled = Convert.ToInt32(dict["enabled"]);
-                if(ReadyForRecording != null) {
-                    ReadyForRecording(enabled == 1);
-                }
+        if(ReadyForRecording != null) {
+            Dictionary<string,object> dict = EveryplayDictionaryExtensions.JsonToDictionary(jsonMsg);
+            bool enabled;
+
+            if(EveryplayDictionaryExtensions.TryGetValue(dict, "enabled", out enabled)) {
+                ReadyForRecording(enabled);
             }
         }
     }
@@ -910,13 +929,12 @@ public class Everyplay : MonoBehaviour
 
     private void EveryplayFaceCamRecordingPermission(string jsonMsg)
     {
-        if(jsonMsg != null && jsonMsg.Length > 0) {
-            Dictionary<string,object> dict = Json.Deserialize(jsonMsg) as Dictionary<string,object>;
-            if(dict != null && dict.ContainsKey("granted")) {
-                int granted = Convert.ToInt32(dict["granted"]);
-                if(FaceCamRecordingPermission != null) {
-                    FaceCamRecordingPermission(granted == 1);
-                }
+        if(FaceCamRecordingPermission != null) {
+            Dictionary<string,object> dict = EveryplayDictionaryExtensions.JsonToDictionary(jsonMsg);
+            bool granted;
+
+            if(EveryplayDictionaryExtensions.TryGetValue(dict, "granted", out granted)) {
+                FaceCamRecordingPermission(granted);
             }
         }
     }
@@ -930,69 +948,91 @@ public class Everyplay : MonoBehaviour
 
     private void EveryplayThumbnailReadyAtFilePath(string jsonMsg)
     {
-        if(jsonMsg != null && jsonMsg.Length > 0) {
-            Dictionary<string,object> dict = Json.Deserialize(jsonMsg) as Dictionary<string,object>;
-            if(dict != null && dict.ContainsKey("thumbnailFilePath")) {
-                string realFilePath = (string)dict["thumbnailFilePath"];
-                if(realFilePath != null) {
-                    if(ThumbnailReadyAtFilePath != null) {
-                        ThumbnailReadyAtFilePath(realFilePath);
-                    }
-                }
+        if(ThumbnailReadyAtFilePath != null) {
+            Dictionary<string,object> dict = EveryplayDictionaryExtensions.JsonToDictionary(jsonMsg);
+            string thumbnailFilePath;
+
+            if(EveryplayDictionaryExtensions.TryGetValue(dict, "thumbnailFilePath", out thumbnailFilePath)) {
+                ThumbnailReadyAtFilePath(thumbnailFilePath);
             }
         }
     }
 
     private void EveryplayThumbnailReadyAtTextureId(string jsonMsg)
     {
-        if(jsonMsg != null && jsonMsg.Length > 0) {
-            Dictionary<string,object> dict = Json.Deserialize(jsonMsg) as Dictionary<string,object>;
-            if(dict != null && dict.ContainsKey("textureId") && dict.ContainsKey("portrait")) {
-                int realTextureId = Convert.ToInt32(dict["textureId"]);
-                bool realPortrait = Convert.ToInt32(dict["portrait"]) > 0 ? true : false;
+#pragma warning disable 612, 618
+        if(ThumbnailReadyAtTextureId != null || ThumbnailTextureReady != null) {
+            Dictionary<string,object> dict = EveryplayDictionaryExtensions.JsonToDictionary(jsonMsg);
+            int textureId;
+            bool portrait;
+
+            if(EveryplayDictionaryExtensions.TryGetValue(dict, "textureId", out textureId) && EveryplayDictionaryExtensions.TryGetValue(dict, "portrait", out portrait)) {
                 if(ThumbnailReadyAtTextureId != null) {
-                    ThumbnailReadyAtTextureId(realTextureId, realPortrait);
+                    ThumbnailReadyAtTextureId(textureId, portrait);
+                }
+#if !UNITY_3_5
+                if(ThumbnailTextureReady != null && currentThumbnailTargetTexture != null) {
+                    if(currentThumbnailTargetTexture.GetNativeTextureID() == textureId) {
+                        ThumbnailTextureReady(currentThumbnailTargetTexture, portrait);
+                    }
+                }
+#endif
+            }
+        }
+#pragma warning restore 612, 618
+    }
+
+    private void EveryplayThumbnailTextureReady(string jsonMsg)
+    {
+#if !UNITY_3_5
+        if(ThumbnailTextureReady != null) {
+            Dictionary<string,object> dict = EveryplayDictionaryExtensions.JsonToDictionary(jsonMsg);
+            long texturePtr;
+            bool portrait;
+
+            if(currentThumbnailTargetTexture != null && EveryplayDictionaryExtensions.TryGetValue(dict, "texturePtr", out texturePtr) && EveryplayDictionaryExtensions.TryGetValue(dict, "portrait", out portrait)) {
+                long currentPtr = (long)currentThumbnailTargetTexture.GetNativeTexturePtr();
+                if(currentPtr == texturePtr) {
+                    ThumbnailTextureReady(currentThumbnailTargetTexture, portrait);
                 }
             }
         }
+#endif
     }
 
     private void EveryplayUploadDidStart(string jsonMsg)
     {
-        if(jsonMsg != null && jsonMsg.Length > 0) {
-            Dictionary<string,object> dict = Json.Deserialize(jsonMsg) as Dictionary<string,object>;
-            if(dict != null && dict.ContainsKey("videoId")) {
-                int videoId = Convert.ToInt32(dict["videoId"]);
-                if(UploadDidStart != null) {
-                    UploadDidStart(videoId);
-                }
+        if(UploadDidStart != null) {
+            Dictionary<string,object> dict = EveryplayDictionaryExtensions.JsonToDictionary(jsonMsg);
+            int videoId;
+
+            if(EveryplayDictionaryExtensions.TryGetValue(dict, "videoId", out videoId)) {
+                UploadDidStart(videoId);
             }
         }
     }
 
     private void EveryplayUploadDidProgress(string jsonMsg)
     {
-        if(jsonMsg != null && jsonMsg.Length > 0) {
-            Dictionary<string,object> dict = Json.Deserialize(jsonMsg) as Dictionary<string,object>;
-            if(dict != null && dict.ContainsKey("videoId") && dict.ContainsKey("progress")) {
-                int videoId = Convert.ToInt32(dict["videoId"]);
-                double progress = Convert.ToDouble(dict["progress"]);
-                if(UploadDidProgress != null) {
-                    UploadDidProgress(videoId, (float)progress);
-                }
+        if(UploadDidProgress != null) {
+            Dictionary<string,object> dict = EveryplayDictionaryExtensions.JsonToDictionary(jsonMsg);
+            int videoId;
+            double progress;
+
+            if(EveryplayDictionaryExtensions.TryGetValue(dict, "videoId", out videoId) && EveryplayDictionaryExtensions.TryGetValue(dict, "progress", out progress)) {
+                UploadDidProgress(videoId, (float)progress);
             }
         }
     }
 
     private void EveryplayUploadDidComplete(string jsonMsg)
     {
-        if(jsonMsg != null && jsonMsg.Length > 0) {
-            Dictionary<string,object> dict = Json.Deserialize(jsonMsg) as Dictionary<string,object>;
-            if(dict != null && dict.ContainsKey("videoId")) {
-                int videoId = Convert.ToInt32(dict["videoId"]);
-                if(UploadDidComplete != null) {
-                    UploadDidComplete(videoId);
-                }
+        if(UploadDidComplete != null) {
+            Dictionary<string,object> dict = EveryplayDictionaryExtensions.JsonToDictionary(jsonMsg);
+            int videoId;
+
+            if(EveryplayDictionaryExtensions.TryGetValue(dict, "videoId", out videoId)) {
+                UploadDidComplete(videoId);
             }
         }
     }
@@ -1128,6 +1168,9 @@ public class Everyplay : MonoBehaviour
     private static extern void EveryplayFaceCamSetPreviewOrigin(int origin);
 
     [DllImport("__Internal")]
+    private static extern void EveryplayFaceCamSetTargetTexture(System.IntPtr texturePtr);
+
+    [DllImport("__Internal")]
     private static extern void EveryplayFaceCamSetTargetTextureId(int textureId);
 
     [DllImport("__Internal")]
@@ -1147,6 +1190,9 @@ public class Everyplay : MonoBehaviour
 
     [DllImport("__Internal")]
     private static extern void EveryplaySetThumbnailWidth(int thumbnailWidth);
+
+    [DllImport("__Internal")]
+    private static extern void EveryplaySetThumbnailTargetTexture(System.IntPtr texturePtr);
 
     [DllImport("__Internal")]
     private static extern void EveryplaySetThumbnailTargetTextureId(int textureId);

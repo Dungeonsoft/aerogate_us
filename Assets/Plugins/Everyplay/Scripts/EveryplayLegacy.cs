@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class EveryplayLegacy : MonoBehaviour
 {
+#pragma warning disable 612, 618
     public event Everyplay.WasClosedDelegate WasClosed {
         add {
             Everyplay.WasClosed += value;
@@ -385,4 +386,5 @@ public class EveryplayLegacy : MonoBehaviour
     {
         Everyplay.TakeThumbnail();
     }
+#pragma warning restore 612, 618
 }

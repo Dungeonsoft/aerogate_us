@@ -67,6 +67,7 @@
     <Compile Include="Assets\Plugins\Everyplay\Helpers\Scripts\EveryplayInGameFaceCam.cs" />
     <Compile Include="Assets\Plugins\Everyplay\Helpers\Scripts\EveryplayThumbnailPool.cs" />
     <Compile Include="Assets\Plugins\Everyplay\Scripts\Everyplay.cs" />
+    <Compile Include="Assets\Plugins\Everyplay\Scripts\EveryplayDictionaryExtensions.cs" />
     <Compile Include="Assets\Plugins\Everyplay\Scripts\EveryplayEarlyInitializer.cs" />
     <Compile Include="Assets\Plugins\Everyplay\Scripts\EveryplayFaceCamTest.cs" />
     <Compile Include="Assets\Plugins\Everyplay\Scripts\EveryplayLegacy.cs" />

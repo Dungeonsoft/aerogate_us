@@ -10,6 +10,9 @@ public class EveryplaySettingsEditor : Editor
     public const string settingsFile = "EveryplaySettings";
     public const string settingsFileExtension = ".asset";
     public const string testButtonsResourceFile = "everyplay-test-buttons.png";
+    private const BuildTarget kBuildTargetIOS = (BuildTarget)9; // Avoid automatic API updater dialog (iPhone -> iOS)
+    private const BuildTargetGroup kBuildTargetGroupIOS = (BuildTargetGroup)4; // Avoid automatic API updater dialog (iPhone -> iOS)
+
     private static GUIContent labelClientId = new GUIContent("Client id");
     private static GUIContent labelClientSecret = new GUIContent("Client secret");
     private static GUIContent labelRedirectURI = new GUIContent("Redirect URI");
@@ -79,7 +82,7 @@ public class EveryplaySettingsEditor : Editor
 
                 if(iosSupportEnabled != currentSettings.iosSupportEnabled) {
                     currentSettings.iosSupportEnabled = iosSupportEnabled;
-                    EveryplayPostprocessor.SetEveryplayEnabledForTarget(BuildTargetGroup.iPhone, currentSettings.iosSupportEnabled);
+                    EveryplayPostprocessor.SetEveryplayEnabledForTarget(kBuildTargetGroupIOS, currentSettings.iosSupportEnabled);
                     EditorUtility.SetDirty(currentSettings);
                 }
 

@@ -19,9 +19,11 @@ public class EveryplayThumbnailPool : MonoBehaviour
 
     public Vector2 thumbnailScale { get; private set; }
 
+    private bool npotSupported = false;
     private bool initialized = false;
     private int currentThumbnailTextureIndex;
     private float nextRandomShotTime;
+    private int thumbnailHeight = 0;
 
     void Awake()
     {
@@ -61,10 +63,10 @@ public class EveryplayThumbnailPool : MonoBehaviour
             aspectRatio = (float)Mathf.Min(Screen.width, Screen.height) / (float)Mathf.Max(Screen.width, Screen.height);
 
             // Calculate height based on aspect ratio
-            int thumbnailHeight = (int)(thumbnailWidth * aspectRatio);
+            thumbnailHeight = (int)(thumbnailWidth * aspectRatio);
 
             // Check for npot support, always use pot textures for older Unitys versions and if npot support is not available
-            bool npotSupported = false;
+            npotSupported = false;
 
             #if !(UNITY_3_5  || UNITY_4_0 || UNITY_4_0_1)
             npotSupported = (SystemInfo.npotSupport != NPOTSupport.None);
@@ -84,31 +86,11 @@ public class EveryplayThumbnailPool : MonoBehaviour
             // Set thumbnail render target to the first texture
             currentThumbnailTextureIndex = 0;
 
-            Everyplay.SetThumbnailTargetTextureId(thumbnailTextures[currentThumbnailTextureIndex].GetNativeTextureID());
-
-            if(npotSupported) {
-                Everyplay.SetThumbnailTargetTextureWidth(thumbnailWidth);
-                Everyplay.SetThumbnailTargetTextureHeight(thumbnailHeight);
-
-                thumbnailScale = new Vector2(1, 1);
-            }
-            else {
-                if(pixelPerfect) {
-                    Everyplay.SetThumbnailTargetTextureWidth(thumbnailWidth);
-                    Everyplay.SetThumbnailTargetTextureHeight(thumbnailHeight);
-
-                    thumbnailScale = new Vector2((float)thumbnailWidth / (float)thumbnailPotWidth, (float)thumbnailHeight / (float)thumbnailPotHeight);
-                }
-                else {
-                    Everyplay.SetThumbnailTargetTextureWidth(thumbnailPotWidth);
-                    Everyplay.SetThumbnailTargetTextureHeight(thumbnailPotHeight);
-
-                    thumbnailScale = new Vector2(1, 1);
-                }
-            }
+            Everyplay.SetThumbnailTargetTexture(thumbnailTextures[currentThumbnailTextureIndex]);
+            SetThumbnailTargetSize();
 
             // Add thumbnail take listener
-            Everyplay.ThumbnailReadyAtTextureId += OnThumbnailReady;
+            Everyplay.ThumbnailTextureReady += OnThumbnailReady;
             Everyplay.RecordingStarted += OnRecordingStarted;
 
             initialized = true;
@@ -120,7 +102,8 @@ public class EveryplayThumbnailPool : MonoBehaviour
         availableThumbnailCount = 0;
         currentThumbnailTextureIndex = 0;
 
-        Everyplay.SetThumbnailTargetTextureId(thumbnailTextures[currentThumbnailTextureIndex].GetNativeTextureID());
+        Everyplay.SetThumbnailTargetTexture(thumbnailTextures[currentThumbnailTextureIndex]);
+        SetThumbnailTargetSize();
 
         if(takeRandomShots) {
             Everyplay.TakeThumbnail();
@@ -138,9 +121,9 @@ public class EveryplayThumbnailPool : MonoBehaviour
         }
     }
 
-    private void OnThumbnailReady(int id, bool portrait)
+    private void OnThumbnailReady(Texture2D texture, bool portrait)
     {
-        if(thumbnailTextures[currentThumbnailTextureIndex].GetNativeTextureID() == id) {
+        if(thumbnailTextures[currentThumbnailTextureIndex] == texture) {
             currentThumbnailTextureIndex++;
 
             if(currentThumbnailTextureIndex >= thumbnailTextures.Length) {
@@ -151,7 +134,41 @@ public class EveryplayThumbnailPool : MonoBehaviour
                 availableThumbnailCount++;
             }
 
-            Everyplay.SetThumbnailTargetTextureId(thumbnailTextures[currentThumbnailTextureIndex].GetNativeTextureID());
+            Everyplay.SetThumbnailTargetTexture(thumbnailTextures[currentThumbnailTextureIndex]);
+            SetThumbnailTargetSize();
+        }
+    }
+
+    private void SetThumbnailTargetSize() {
+        // Workaround issue that Unity might say that texture is size of x even it really is x to next power of two
+        int thumbnailPotWidth = Mathf.NextPowerOfTwo(thumbnailWidth);
+        int thumbnailPotHeight = Mathf.NextPowerOfTwo(thumbnailHeight);
+
+        if(npotSupported) {
+#pragma warning disable 612, 618
+            Everyplay.SetThumbnailTargetTextureWidth(thumbnailWidth);
+            Everyplay.SetThumbnailTargetTextureHeight(thumbnailHeight);
+#pragma warning restore 612, 618
+
+            thumbnailScale = new Vector2(1, 1);
+        }
+        else {
+            if(pixelPerfect) {
+#pragma warning disable 612, 618
+                Everyplay.SetThumbnailTargetTextureWidth(thumbnailWidth);
+                Everyplay.SetThumbnailTargetTextureHeight(thumbnailHeight);
+#pragma warning restore 612, 618
+
+                thumbnailScale = new Vector2((float)thumbnailWidth / (float)thumbnailPotWidth, (float)thumbnailHeight / (float)thumbnailPotHeight);
+            }
+            else {
+#pragma warning disable 612, 618
+                Everyplay.SetThumbnailTargetTextureWidth(thumbnailPotWidth);
+                Everyplay.SetThumbnailTargetTextureHeight(thumbnailPotHeight);
+#pragma warning restore 612, 618
+
+                thumbnailScale = new Vector2(1, 1);
+            }
         }
     }
 
@@ -161,15 +178,15 @@ public class EveryplayThumbnailPool : MonoBehaviour
 
         if(initialized) {
             // Set Everyplay not to render to a texture anymore and remove event handlers
-            Everyplay.SetThumbnailTargetTextureId(0);
+            Everyplay.SetThumbnailTargetTexture(null);
             Everyplay.RecordingStarted -= OnRecordingStarted;
-            Everyplay.ThumbnailReadyAtTextureId -= OnThumbnailReady;
+            Everyplay.ThumbnailTextureReady -= OnThumbnailReady;
 
             // Destroy thumbnail textures
             foreach(Texture2D texture in thumbnailTextures) {
-				if(texture != null) {
-					Destroy(texture);
-				}
+                if(texture != null) {
+                    Destroy(texture);
+                }
             }
 
             thumbnailTextures = null;
