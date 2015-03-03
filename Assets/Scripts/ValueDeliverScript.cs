@@ -1159,14 +1159,17 @@ public class ValueDeliverScript : MonoBehaviour
     public static bool isOneMoreWin = false;
 
 
+    //페북 로그아웃후 재로그인하는 상황일때 닉네임 입력창을 안나타나게 하기 위해 생성한 불린 변수//
+    //변수값이 true이면 창이 나오지 않게 해준다//
+    //변수값이 true가 되는 경우는 intro에서 모든 데이터를 로드후 hangar로 넘어갈때 true로 변경해준다//
+    public static bool AlreadyAppStart = false;
 
 
 
 
 
 
-
-    public static void ResetValue()
+    public static void ResetValue(bool forFbLogin = false)
     {
         saveCount = 0;
         fuelSendTime = "";
@@ -1307,8 +1310,12 @@ public class ValueDeliverScript : MonoBehaviour
         RescuedFriendCount = 0;
         isNoEnd = false;
         isPcExplo = false;   //true면 파괴된 상태 // false면 정상비행상태//
-        Nick = "";
-        UserID = "";
+
+        if (forFbLogin == false)
+        {
+            Nick = "";
+            UserID = "";
+        }
         scoreHigh = 0;
         lastScoreHigh = 0;
         coinRest = 0;

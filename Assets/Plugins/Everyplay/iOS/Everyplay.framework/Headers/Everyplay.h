@@ -119,8 +119,6 @@ NS_CLASS_AVAILABLE(10_7, 4_0)
 - (void)everyplayThumbnailReadyAtURL:(NSURL *)thumbnailUrl;
 
 - (void)everyplayThumbnailReadyAtTextureId:(NSNumber *)textureId portraitMode:(NSNumber *)portrait;
-- (void)everyplayMetalThumbnailReadyAtTexture:(id)texture portraitMode:(NSNumber *)portrait;
-
 @end
 
 NS_CLASS_AVAILABLE(10_7, 4_0)

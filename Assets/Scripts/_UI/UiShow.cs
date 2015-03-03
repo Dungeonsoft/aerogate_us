@@ -72,13 +72,16 @@ public class UiShow : MonoBehaviour
     IEnumerator NonTimeAniPlay()
     {
         float aniLength = pauseMessage.animation["UiPopUpAni_Pause"].length;
+        
+        pauseMessage.animation.Play("UiPopUpAni_Pause");
+
         for (float i = 0; i <= aniLength; i += 0.02f)
         {
             pauseMessage.animation["UiPopUpAni_Pause"].time = i;
-            pauseMessage.animation.Play("UiPopUpAni_Pause");
-            yield return null;
             //						pauseMessage.animation.Play ("UiPopUpAni_Pause");
+            yield return null;
         }
+
     }
 
 

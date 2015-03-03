@@ -12,6 +12,13 @@ public class FbOutScript : MonoBehaviour {
         StartCoroutine(LoadFirst());
     }
 
+    public void LogOutForFbLogin()
+    {
+        PlayerPrefs.DeleteAll();
+        ValueDeliverScript.ResetValue(true);
+        StartCoroutine(LoadFirst());
+    }
+
     IEnumerator LoadFirst()
     {
         yield return new WaitForSeconds(1f);

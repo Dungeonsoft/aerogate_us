@@ -36,6 +36,7 @@ public class HangarManager : MonoBehaviour
     public GameObject uiInfo02Window;
     public GameObject uiInfo03Window;
     public GameObject upgradePointWindow;
+    public GameObject noFbLoginWindow;
     #endregion
 
     public GameObject flights;
@@ -2972,6 +2973,13 @@ public class HangarManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             friendWindow.transform.FindChild("BackBtn").gameObject.SetActive(true);
         }
+
+
+        //페북 로그인을 하지 않은 유저는 페북 랭킹창을 볼 수 없게 만든다//
+        if (ValueDeliverScript.myFBid == "" || ValueDeliverScript.myFBid == null)
+        {
+            GoToWorldRankTab(true);
+        }
     }
 
     private IEnumerator EscapeFriendWindow()
@@ -3680,6 +3688,14 @@ public class HangarManager : MonoBehaviour
 
     public void GoToFriendWeekTab()
     {
+        if (ValueDeliverScript.myFBid == "" || ValueDeliverScript.myFBid == null)
+        {
+            GetComponent<HangarPopupController>().AddPopWin(noFbLoginWindow, 0);
+
+            return;
+        }
+
+
         Debug.Log("ValueDeliverScript.rankDataFB.Length :: " + ValueDeliverScript.rankDataFB.Length);
         prepareReady.transform.FindChild("FriendPointBtn").gameObject.SetActive(true);
         friendWindow.transform.FindChild("AllMessageBtn").gameObject.SetActive(false);
@@ -3702,14 +3718,23 @@ public class HangarManager : MonoBehaviour
         friendWindow.transform.FindChild("Script02").GetComponent<UILabel>().text = "Send Fuels to Get Buddy Points.";
     }
 
-    public void GoToWorldRankTab()
+    public void GoToWorldRankTab(bool noFb =false)
     {
         prepareReady.transform.FindChild("FriendPointBtn").gameObject.SetActive(true);
         friendWindow.transform.FindChild("AllMessageBtn").gameObject.SetActive(false);
 
-        StartCoroutine(TransChange(friendWeekTab, 0));
-        StartCoroutine(TransChange(wRankab, 1));
-        StartCoroutine(TransChange(friendMailTab, 0));
+        if (noFb == false)
+        {
+            StartCoroutine(TransChange(friendWeekTab, 0));
+            StartCoroutine(TransChange(wRankab, 1));
+            StartCoroutine(TransChange(friendMailTab, 0));
+        }
+        else
+        {
+            friendWeekTab.GetComponent<UIPanel>().alpha = 0;
+            wRankab.GetComponent<UIPanel>().alpha = 1;
+            friendMailTab.GetComponent<UIPanel>().alpha = 0;
+        }
 
         friendWindow.transform.FindChild("TapSprits/RankTab").GetComponent<UISprite>().spriteName = "Btn_TapRight_01";
         friendWindow.transform.FindChild("TapSprits/WRankTab").GetComponent<UISprite>().spriteName = "Btn_TapRight_00";
@@ -6990,4 +7015,23 @@ public class HangarManager : MonoBehaviour
         GameObject.Find("GameManager").GetComponent<GasTimeScript>().MedalRecount();
         ValueDeliverScript.SaveGameData();
     }
+
+    void LogOutForFbLogin()
+    {
+        PlayerPrefs.DeleteAll();
+        ValueDeliverScript.ResetValue(true);
+        StartCoroutine(LoadFirst());
+    }
+
+    IEnumerator LoadFirst()
+    {
+        yield return new WaitForSeconds(1f);
+        //Application.Quit();
+        Destroy(GameObject.Find("FacebookLogin"));
+        Destroy(GameObject.Find("EveryPlayTest"));
+
+        Application.LoadLevel(0);
+
+    }
+
 }

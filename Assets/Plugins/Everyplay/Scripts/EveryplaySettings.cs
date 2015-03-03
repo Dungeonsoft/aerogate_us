@@ -5,7 +5,7 @@ public class EveryplaySettings : ScriptableObject
 {
     public string clientId;
     public string clientSecret;
-    public string redirectURI = "https://m.everyplay.com/auth";
+    public string redirectURI;
 
     public bool iosSupportEnabled;
     public bool androidSupportEnabled;

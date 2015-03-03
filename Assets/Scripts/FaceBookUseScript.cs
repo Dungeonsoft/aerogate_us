@@ -1412,6 +1412,7 @@ public class FaceBookUseScript : MonoBehaviour
 
     void LoadHanger()
     {
+        ValueDeliverScript.AlreadyAppStart = true;
         //yield return new WaitForSeconds(1f);
         Application.LoadLevel("Hangar");
     }

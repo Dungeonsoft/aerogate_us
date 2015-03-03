@@ -27,6 +27,7 @@ public class AfterInitialScript : MonoBehaviour
     {
         Debug.Log("::::::::::: SetStart ::::::::::::::::");
 
+        ValueDeliverScript.AlreadyAppStart = false;
         
         //GameObject.Find("Anchor").transform.FindChild("FacebookBTN").gameObject.SetActive(false);
         //GameObject.Find("Anchor").transform.FindChild("LoadingBar").gameObject.SetActive(true);
@@ -96,7 +97,7 @@ public class AfterInitialScript : MonoBehaviour
 
     public void EnterNickWin()
     {
-        if (ValueDeliverScript.UserID != "" && ValueDeliverScript.Nick != "")
+        if ((ValueDeliverScript.UserID != "" && ValueDeliverScript.Nick != "") || ValueDeliverScript.AlreadyAppStart == true)
         {
             MyDelegateNS.UsercheckDele UserCheckComplete = new MyDelegateNS.UsercheckDele(GameObject.Find("FacebookLogin").GetComponent<FaceBookUseScript>().UserCheckComplete);
             StartCoroutine(GameObject.Find("JoywingServer").GetComponent<JoywingServerScript>().UpdateFBid(UserCheckComplete));

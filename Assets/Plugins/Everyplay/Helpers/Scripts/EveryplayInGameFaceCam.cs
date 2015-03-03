@@ -18,7 +18,9 @@ public class EveryplayInGameFaceCam : MonoBehaviour
         if(targetMaterial && targetTexture) {
             defaultTexture = targetMaterial.mainTexture;
 
-            Everyplay.FaceCamSetTargetTexture(targetTexture);
+            Everyplay.FaceCamSetTargetTextureId(targetTexture.GetNativeTextureID());
+            Everyplay.FaceCamSetTargetTextureWidth(textureSideWidth);
+            Everyplay.FaceCamSetTargetTextureHeight(textureSideWidth);
 
             Everyplay.FaceCamSessionStarted += OnSessionStart;
             Everyplay.FaceCamSessionStopped += OnSessionStop;

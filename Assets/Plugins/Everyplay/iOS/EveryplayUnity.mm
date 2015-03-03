@@ -62,7 +62,6 @@ static EveryplayUnity * everyplayUnity = [EveryplayUnity sharedInstance];
     }
 
     self = [super init];
-
     if(self) {
         everyplayUnity = self;
         displayLinkPaused = NO;
@@ -170,15 +169,6 @@ static EveryplayUnity * everyplayUnity = [EveryplayUnity sharedInstance];
     ELOG;
     NSString *jsonMsg = [NSString stringWithFormat: @"{ \"textureId\":%d,\"portrait\":%d }", [textureId intValue], [portrait intValue]];
     UnitySendMessage("Everyplay", "EveryplayThumbnailReadyAtTextureId", [jsonMsg UTF8String]);
-}
-
-- (void)everyplayMetalThumbnailReadyAtTexture:(id)texture portraitMode:(NSNumber *)portrait {
-    ELOG;
-    if(texture != nil) {
-        uintptr_t texturePtr = (uintptr_t)(__bridge void*)texture;
-        NSString *jsonMsg = [NSString stringWithFormat: @"{ \"texturePtr\":%lu,\"portrait\":%d }", texturePtr, [portrait intValue]];
-        UnitySendMessage("Everyplay", "EveryplayThumbnailTextureReady", [jsonMsg UTF8String]);
-    }
 }
 
 - (void)everyplayUploadDidStart:(NSNumber *)videoId {
@@ -371,7 +361,7 @@ extern "C" {
     }
 
     int EveryplayGetUserInterfaceIdiom() {
-        return (int)[[UIDevice currentDevice] userInterfaceIdiom];
+        return [[UIDevice currentDevice] userInterfaceIdiom];
     }
 
     float EveryplayFaceCamAudioPeakLevel() {
@@ -423,35 +413,6 @@ extern "C" {
         [[[Everyplay sharedInstance] faceCam] setPreviewBorderColor: color];
     }
 
-    void EveryplayFaceCamSetTargetTexture(void *texturePtr) {
-        BOOL isMetal = NO;
-
-#if UNITY_VERSION >= 463
-        isMetal = (UnitySelectedRenderingAPI() == apiMetal);
-#endif
-        if(texturePtr != NULL) {
-            if(isMetal) {
-                if([[[Everyplay sharedInstance] faceCam] respondsToSelector:@selector(setTargetTextureMetal:)]) {
-                    [[[Everyplay sharedInstance] faceCam] performSelector:@selector(setTargetTextureMetal:) withObject: (__bridge id)texturePtr];
-                }
-            }
-            else {
-                int textureId = *((int*)&texturePtr);
-                [[[Everyplay sharedInstance] faceCam] setTargetTextureId: textureId];
-            }
-        }
-        else {
-            if(isMetal) {
-                if([[[Everyplay sharedInstance] faceCam] respondsToSelector:@selector(setTargetTextureMetal:)]) {
-                    [[[Everyplay sharedInstance] faceCam] performSelector:@selector(setTargetTextureMetal:) withObject: nil];
-                }
-            }
-            else {
-                [[[Everyplay sharedInstance] faceCam] setTargetTextureId: 0];
-            }
-        }
-    }
-
     void EveryplayFaceCamSetTargetTextureId(int textureId) {
         [[[Everyplay sharedInstance] faceCam] setTargetTextureId: textureId];
     }
@@ -478,35 +439,6 @@ extern "C" {
 
     void EveryplaySetThumbnailWidth(int thumbnailWidth) {
         [[[Everyplay sharedInstance] capture] setThumbnailWidth: thumbnailWidth];
-    }
-
-    void EveryplaySetThumbnailTargetTexture(void *texturePtr) {
-        BOOL isMetal = NO;
-
-#if UNITY_VERSION >= 463
-        isMetal = (UnitySelectedRenderingAPI() == apiMetal);
-#endif
-        if(texturePtr != NULL) {
-            if(isMetal) {
-                if([[[Everyplay sharedInstance] capture] respondsToSelector:@selector(setThumbnailTargetTextureMetal:)]) {
-                    [[[Everyplay sharedInstance] capture] performSelector:@selector(setThumbnailTargetTextureMetal:) withObject: (__bridge id)texturePtr];
-                }
-            }
-            else {
-                int textureId = *((int*)&texturePtr);
-                [[[Everyplay sharedInstance] capture] setThumbnailTargetTextureId: textureId];
-            }
-        }
-        else {
-            if(isMetal) {
-                if([[[Everyplay sharedInstance] capture] respondsToSelector:@selector(setThumbnailTargetTextureMetal:)]) {
-                    [[[Everyplay sharedInstance] capture] performSelector:@selector(setThumbnailTargetTextureMetal:) withObject: nil];
-                }
-            }
-            else {
-                [[[Everyplay sharedInstance] capture] setThumbnailTargetTextureId: 0];
-            }
-        }
     }
 
     void EveryplaySetThumbnailTargetTextureId(int textureId) {
