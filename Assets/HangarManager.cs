@@ -3718,6 +3718,10 @@ public class HangarManager : MonoBehaviour
         friendWindow.transform.FindChild("Script02").GetComponent<UILabel>().text = "Send Fuels to Get Buddy Points.";
     }
 
+    public void GoToWorldRankTabNoBool()
+    {
+        GoToWorldRankTab();
+    }
     public void GoToWorldRankTab(bool noFb =false)
     {
         prepareReady.transform.FindChild("FriendPointBtn").gameObject.SetActive(true);
