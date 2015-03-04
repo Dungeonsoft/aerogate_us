@@ -98143,7 +98143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 256398100}
-  functionName: GoToWorldRankTab
+  functionName: GoToWorldRankTabNoBool
   trigger: 0
   includeChildren: 0
 --- !u!1 &1908006594
