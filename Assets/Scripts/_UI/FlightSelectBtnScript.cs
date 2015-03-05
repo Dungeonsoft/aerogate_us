@@ -491,13 +491,22 @@ public class FlightSelectBtnScript : MonoBehaviour
         }
         else
         {
-            DefaultVaue();
-            GameTip.SetActive(true);    //게임팁 보임.
-            startBtnCick = true;	//버튼을 한번만 클릭하게 만들어준다.
-            StartCoroutine(LoadInGame01());
+            GameStart3();
         }
     }
+    
+    public void GameStart3()
+    {
+        DefaultVaue();
+        GameTip.SetActive(true);    //게임팁 보임.
+        startBtnCick = true;	//버튼을 한번만 클릭하게 만들어준다.
+        StartCoroutine(LoadInGame01());
+    }
 
+    public void GetFreeFuel()
+    {
+        GetComponent<UnityAdsManager>().AbleAds(GameStart3);
+    }
 
     IEnumerator LoadInGame01()
     {

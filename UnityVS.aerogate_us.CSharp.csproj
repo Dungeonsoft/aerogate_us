@@ -521,6 +521,7 @@
     <Compile Include="Assets\UFTAtlasEditor\Resources\Scripts\Utils\UFTTextureUtil.cs" />
     <Compile Include="Assets\UfoSeed.cs" />
     <Compile Include="Assets\UiTestGameManager.cs" />
+    <Compile Include="Assets\UnityAdsManager.cs" />
     <Compile Include="Assets\UpgradeAlarmShow.cs" />
     <Compile Include="Assets\WinController.cs" />
     <Compile Include="Assets\engineFxScript.cs" />
@@ -760,6 +761,10 @@
     <None Include="Assets\Plugins\Android\facebook\res\values-ldpi\dimens.xml" />
     <None Include="Assets\Plugins\Android\facebook\res\values-mdpi\dimens.xml" />
     <None Include="Assets\Plugins\Android\facebook\res\values-xhdpi\dimens.xml" />
+    <None Include="Assets\Plugins\Android\unityads\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\unityads\build.xml" />
+    <None Include="Assets\Plugins\Android\unityads\proguard-project.txt" />
+    <None Include="Assets\Plugins\Android\unityads\res\values\strings.xml" />
     <None Include="Assets\Plugins\Everyplay\Helpers\Shaders\EveryplayCrossfade.shader" />
     <None Include="Assets\Plugins\InAppBillingAndroid\Manifest.xml" />
     <None Include="Assets\Scenes\testOut.shader" />

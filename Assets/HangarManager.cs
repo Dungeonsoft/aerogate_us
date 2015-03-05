@@ -7037,5 +7037,4 @@ public class HangarManager : MonoBehaviour
         Application.LoadLevel(0);
 
     }
-
 }

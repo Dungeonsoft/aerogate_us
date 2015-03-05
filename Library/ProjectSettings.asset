@@ -109,7 +109,7 @@ PlayerSettings:
     type: 3}
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 1
-  AndroidKeystoreName: E:/GitHub/aerogate_us/key/AeroGate.keystore
+  AndroidKeystoreName: C:/GitHub/aerogate_us/key/AeroGate.keystore
   AndroidKeyaliasName: aerogate
   resolutionDialogBanner: {fileID: 0}
   m_BuildTargetIcons:

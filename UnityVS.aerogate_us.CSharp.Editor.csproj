@@ -104,6 +104,10 @@
       <Project>{731A3CD0-5504-7059-8CB2-D93F615F9F6C}</Project>
       <Name>UnityVS.aerogate_us.CSharp.Plugins</Name>
     </ProjectReference>
+    <ProjectReference Include="UnityVS.aerogate_us.CSharp.Editor.Plugins.csproj">
+      <Project>{4FFC6D60-A4BC-185D-6ADE-7B5321399437}</Project>
+      <Name>UnityVS.aerogate_us.CSharp.Editor.Plugins</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\Everyplay\Scripts\EveryplayLegacyCleanup.cs" />
@@ -539,6 +543,10 @@
     <None Include="Assets\Plugins\Android\facebook\res\values-ldpi\dimens.xml" />
     <None Include="Assets\Plugins\Android\facebook\res\values-mdpi\dimens.xml" />
     <None Include="Assets\Plugins\Android\facebook\res\values-xhdpi\dimens.xml" />
+    <None Include="Assets\Plugins\Android\unityads\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\unityads\build.xml" />
+    <None Include="Assets\Plugins\Android\unityads\proguard-project.txt" />
+    <None Include="Assets\Plugins\Android\unityads\res\values\strings.xml" />
     <None Include="Assets\Plugins\Everyplay\Helpers\Shaders\EveryplayCrossfade.shader" />
     <None Include="Assets\Plugins\InAppBillingAndroid\Manifest.xml" />
     <None Include="Assets\Scenes\testOut.shader" />

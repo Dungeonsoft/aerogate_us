@@ -175,6 +175,13 @@ public class UiShow : MonoBehaviour
         }
     }
 
+    public void GetFreeFuel()
+    {
+        GameObject.Find("OneMoreCount").GetComponent<OneMoreCount>().isIntoShop = true;
+        GetComponent<UnityAdsManager>().AbleAds(OneMoreActionYes);
+    }
+
+
     IEnumerator ShowBuyDiamondWin()
     {
         GameObject.Find("OneMoreCount").GetComponent<OneMoreCount>().isIntoShop = true;
