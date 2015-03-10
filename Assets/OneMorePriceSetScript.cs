@@ -17,7 +17,7 @@ public class OneMorePriceSetScript : MonoBehaviour {
     public void Activate()
     {
         oneMoreCount++;
-        diamondPrice = diamondpriceDefault * oneMoreCount;
+        diamondPrice = diamondpriceDefault;
 
         diamondPriceText.text = diamondPrice.ToString();
         //moneyPriceText.text = MoneyPrice.ToString();

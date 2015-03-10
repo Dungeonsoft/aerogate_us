@@ -6008,9 +6008,9 @@ MonoBehaviour:
       height: 64
     inner:
       serializedVersion: 2
-      x: 1116
+      x: 1175
       y: 1469
-      width: 217
+      width: 79
       height: 64
     rotated: 0
     paddingLeft: 0

@@ -180,6 +180,7 @@ public class UfoExplosion : MonoBehaviour
 
         switch (col.tag)
         {
+            #region SuperPower PcLaser Bomb01
             case "SuperPower":
             case "PcLaser":
             case "Bomb01":
@@ -189,12 +190,23 @@ public class UfoExplosion : MonoBehaviour
                     activate.ExploActivation(transform.position + addPosition, 02, gameObject.name); //피탄 이펙트 켜짐.
                 else
                     activate.ExploActivation(transform.GetChild(0).position + addPosition, 02, gameObject.name); //피탄 이펙트 켜짐.
+                break;
+            #endregion
+
+            #region LevelChangeBomb
+            case "LevelChangeBomb":
+                soundUiControlScript.UfoAttacked();
+                ufoLife = 0;
+                if (ufoType != 3)
+                    activate.ExploActivation(transform.position + addPosition, 02, gameObject.name); //피탄 이펙트 켜짐.
+                else
+                    activate.ExploActivation(transform.GetChild(0).position + addPosition, 02, gameObject.name); //피탄 이펙트 켜짐.
                 isLevelChangeBomb01 = true;
                 ExploEnd();
                 break;
+            #endregion
 
-
-
+            #region Bullet Missile
             case "Bullet":
             case "Missile":
                 bulletDamage = col.gameObject.GetComponent<BulletInfoScript>().bulletDamageF;
@@ -239,21 +251,9 @@ public class UfoExplosion : MonoBehaviour
                         break;
                 }
                 break;
+            #endregion
 
-                //태그를Bomb로 쓰고 있는 오브젝트는 없는듯// 차후에 다시 확인해서 이부분을 삭제할지 아니할지 결정해야됨//
-            //case "Bomb":
-            //    soundUiControlScript.UfoAttacked();
-            //    ufoLife = 0;
-            //    if (ufoType != 3) activate.ExploActivation(transform.position + addPosition, 02, gameObject.name); //피탄 이펙트 켜짐.
-            //    else activate.ExploActivation(transform.GetChild(0).position + addPosition, 02, gameObject.name); //피탄 이펙트 켜짐.
-            //    break;
-
-                //이부분은 원래 블랙홀 담당하는 부분//
-            //case "Bomb03":
-            //    if (gameObject.activeSelf == true)
-            //        gameObject.SendMessage("BalckHallActive");
-            //    break;
-
+            #region SkillBullet Player
             case "SkillBullet":
                 soundUiControlScript.UfoAttacked();
                 int skillDamage = col.gameObject.GetComponent<BulletInfoScript>().bulletDamageF;
@@ -293,6 +293,7 @@ public class UfoExplosion : MonoBehaviour
 
                 gameManager.GetComponent<RedAlert>().StateChage(RedAlert.AlertState.attacked);
                 break;
+            #endregion
         }
 
         if (ufoLife <= 0 && gameObject.activeSelf  == true)
@@ -324,7 +325,7 @@ public class UfoExplosion : MonoBehaviour
         DestroyUfo(nameTag);
     }
 
-    void DestroyUfo(string nameTag)
+    void DestroyUfo(string nameTag ="None")
     {
         if (ValueDeliverScript.flightNumber == 1)
         {
@@ -339,6 +340,7 @@ public class UfoExplosion : MonoBehaviour
         { // 레벨체인지밤으로 처리시 점수나 아이템 방출은 처리안함.//동전 생성. -파워업은 PortalActivation에서 처리함.
             portalActivation.AddEnumyKillCount(); //.AddEnumyKillCount(); //킬 되고 나서 킬수 더해줌.
             //						Debug.Log (parentPortal.name + "AddEnumyKillCount");
+            
             int addedScore;
             addedScore = GameObject.Find("GameManager").GetComponent<ComboSystemScript>().isCombo(this.addScore);
 
@@ -380,8 +382,6 @@ public class UfoExplosion : MonoBehaviour
             if (ufoType == 3) addScoreLabelUiObjectPool.AddScoreActivation(transform.GetChild(0).gameObject, addedScore, false);
             else addScoreLabelUiObjectPool.AddScoreActivation(this.gameObject, addedScore, false); // 추가하여야 될 점수 표시판에 넣어줌.
         }
-        else gameObject.SetActive(false);
-
         ExploEnd();
     }
 

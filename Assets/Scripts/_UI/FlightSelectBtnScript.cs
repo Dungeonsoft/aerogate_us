@@ -484,14 +484,33 @@ public class FlightSelectBtnScript : MonoBehaviour
 
         if (gasRest < gasUsed && ValueDeliverScript.isTutComplete != 0)
         {
-            //Debug.Log("ValueDeliverScript.gasRest :::: " + gasRest);
+            gasShortageWindow = GameObject.Find("GameManager").GetComponent<HangarManager>().gasShortageWindow;
             //연료가 바닥 났으므로 구매유도 팝업을 띄운다.
-
-            GetComponent<HangarPopupController>().AddPopWin(GameObject.Find("GameManager").GetComponent<HangarManager>().gasShortageWindow, 0);
+            GetComponent<HangarPopupController>().AddPopWin(gasShortageWindow, 0, GasShortageWindowAdsAble);
         }
         else
         {
             GameStart3();
+        }
+    }
+
+    GameObject gasShortageWindow;
+
+    void GasShortageWindowAdsAble()
+    {
+        bool isReady = UnityEngine.Advertisements.Advertisement.isReady();
+
+        if (isReady == false)
+        {
+            gasShortageWindow.transform.FindChild("FreeFuelBtn").gameObject.SetActive(false);
+            gasShortageWindow.transform.FindChild("TapBar").localPosition = new Vector3(0, -80, 0);
+            gasShortageWindow.transform.FindChild("warning2").localPosition = new Vector3(0, -40, 0);
+        }
+        else
+        {
+            gasShortageWindow.transform.FindChild("FreeFuelBtn").gameObject.SetActive(true);
+            gasShortageWindow.transform.FindChild("TapBar").localPosition = new Vector3(0, 5, 0);
+            gasShortageWindow.transform.FindChild("warning2").localPosition = new Vector3(0, 45, 0);
         }
     }
     
@@ -503,10 +522,20 @@ public class FlightSelectBtnScript : MonoBehaviour
         StartCoroutine(LoadInGame01());
     }
 
+    void AdsFailed()
+    {
+        gasShortageWindow = GameObject.Find("GameManager").GetComponent<HangarManager>().gasShortageWindow;
+
+        gasShortageWindow.transform.FindChild("FreeFuelBtn").gameObject.SetActive(false);
+        gasShortageWindow.transform.FindChild("TapBar").localPosition = new Vector3(0, -80, 0);
+        gasShortageWindow.transform.FindChild("warning2").localPosition = new Vector3(0, -40, 0);
+    }
+
     public void GetFreeFuel()
     {
-        GetComponent<UnityAdsManager>().AbleAds(GameStart3);
+        GetComponent<UnityAdsManager>().AbleAds(GameStart3, AdsFailed);
     }
+
 
     IEnumerator LoadInGame01()
     {
@@ -517,7 +546,6 @@ public class FlightSelectBtnScript : MonoBehaviour
         {
             if (gasRest >= gasUsed) gasRest -= gasUsed;
             ValueDeliverScript.gasRest = gasRest;
-            //Debug.Log("gasRest ::: " + gasRest);
         }
         //연료차감부분.
 
@@ -534,15 +562,6 @@ public class FlightSelectBtnScript : MonoBehaviour
     void LoadInGame02()
     {
         Application.LoadLevel("InGame01");
-        //yield return new WaitForSeconds(1f);
-
-        //AsyncOperation async = Application.LoadLevelAsync("InGame01");
-
-        //while (async.isDone == false)
-        //{
-        //    //Debug.Log("Percent :::: "+async.progress *100f);
-        //    yield return null;
-        //}
     }
 
     void DefaultVaue()	//게임시작시 들어가는 값.인게임에 들어가기전에 이부분이 샐행되어 초기화 되어야 될 값들을 초기화 시켜줌.

@@ -2613,11 +2613,6 @@ public class HangarManager : MonoBehaviour
     private IEnumerator GoToStoreGasWindow()
     {
         GetComponent<HangarPopupController>().CloseWindow();
-        //noTouchPanel.SetActive(true);
-        //gasShortageWindow.SetActive(false);
-        //halfBLKPanel.SetActive(false);
-        //pilotLevelUpWindow.SetActive(false);
-        //duraBuyAlarmWindow.SetActive(false);
 
         storeWindow.SetActive(true);
 
@@ -2702,12 +2697,6 @@ public class HangarManager : MonoBehaviour
 
     void GoToStoreMedalWindowDirect()
     {
-        //noTouchPanel.SetActive(true);
-        //medalShortageWindow.SetActive(false);
-        //gasShortageWindow.SetActive(false);
-        //halfBLKPanel.SetActive(false);
-        //pilotLevelUpWindow.SetActive(false);
-        //duraBuyAlarmWindow.SetActive(false);
         GetComponent<HangarPopupController>().CloseWindow();
         StartCoroutine(GoToStoreMedalWindowI());
     }
@@ -2724,12 +2713,6 @@ public class HangarManager : MonoBehaviour
 
     private IEnumerator GoToStoreMedalWindowI()
     {
-        //noTouchPanel.SetActive(true);
-        //medalShortageWindow.SetActive(false);
-        //gasShortageWindow.SetActive(false);
-        //halfBLKPanel.SetActive(false);
-        //pilotLevelUpWindow.SetActive(false);
-        //duraBuyAlarmWindow.SetActive(false);
 
         storeWindow.SetActive(true);
 
@@ -2816,10 +2799,6 @@ public class HangarManager : MonoBehaviour
 
         GetComponent<HangarPopupController>().CloseWindow();
 
-        //gasShortageWindow.SetActive(false);
-        //halfBLKPanel.SetActive(false);
-        //pilotLevelUpWindow.SetActive(false);
-        //duraBuyAlarmWindow.SetActive(false);
 
         //게임종료후 결과창에서 친구 정보창으로 이동할때만 작동하는 코드이다//
         if (ResultPanel.transform.FindChild("ResultPanelLeft").transform.localPosition.x == 0)
@@ -4319,27 +4298,6 @@ public class HangarManager : MonoBehaviour
         }
         halfBLKPanel.SetActive(false);
     }
-
-    //가스 부족.구매 유도창 관련 열고 닫기.
-    //public void GoToGasShortageWindow()
-    //{
-    //    halfBLKPanel.SetActive(true);
-    //    gasShortageWindow.SetActive(true);
-    //    halfBLKPanel.transform.localPosition = new Vector3(halfBLKPanel.transform.localPosition.x, halfBLKPanel.transform.localPosition.y, gasShortageWindow.transform.localPosition.z + 5);
-    //}
-
-    public void GasShortageWindowClose()
-    {
-        halfBLKPanel.SetActive(false);
-        gasShortageWindow.SetActive(false);
-        halfBLKPanel.transform.localPosition = new Vector3(halfBLKPanel.transform.localPosition.x, halfBLKPanel.transform.localPosition.y, -166);
-    }
-
-    public void GasShortageWindowYes()
-    {
-        halfBLKPanel.transform.localPosition = new Vector3(halfBLKPanel.transform.localPosition.x, halfBLKPanel.transform.localPosition.y, storeWindow.transform.localPosition.z + 5);
-    }
-
 
     void MCoinShortageWindowMethod()
     {

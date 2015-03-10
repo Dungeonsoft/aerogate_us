@@ -383,7 +383,7 @@ public class ValueDeliverScript : MonoBehaviour
 
     public static int flightWindowPosition;
 
-    public static string ver = "20150210";
+    public static string ver = "20150306";
 
     public static float characterSound = 1f;
     public static float fxSound = 0.5f;
@@ -1171,6 +1171,7 @@ public class ValueDeliverScript : MonoBehaviour
 
     public static void ResetValue(bool forFbLogin = false)
     {
+        PlayerPrefs.SetInt("isTutComplete", 2);
         saveCount = 0;
         fuelSendTime = "";
         isVerCheckFaild = false;

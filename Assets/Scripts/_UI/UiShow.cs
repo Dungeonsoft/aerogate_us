@@ -136,8 +136,22 @@ public class UiShow : MonoBehaviour
 
                 if (rebirthCount < 3)
                 {
+
                     ValueDeliverScript.isOneMoreWin = true;
                     oneMoreWin.SetActive(true);
+                    //시간을 흐르게 해주는 변수//
+                    GameObject.Find("OneMoreWin").transform.FindChild("OneMoreCount").GetComponent<OneMoreCount>().isIntoShop = false;
+
+                    if (UnityEngine.Advertisements.Advertisement.isReady() == true)
+                    {
+                        oneMoreWin.transform.FindChild("FreeFuelButton").gameObject.SetActive(true);
+                        oneMoreWin.transform.FindChild("DiamondButton").localPosition = new Vector3(-194.5f, -263, 0);
+                    }
+                    else
+                    {
+                        oneMoreWin.transform.FindChild("FreeFuelButton").gameObject.SetActive(false);
+                        oneMoreWin.transform.FindChild("DiamondButton").localPosition = new Vector3(0, -263, 0);
+                    }
                     oneMoreWin.GetComponent<OneMorePriceSetScript>().Activate();
                     yield break;
                 }
@@ -161,7 +175,6 @@ public class UiShow : MonoBehaviour
         if (ValueDeliverScript.medalRest >= requiredPrice)
         {
             Debug.Log("다이어로 이어하기 성공");
-            rebirthCount++;
             ValueDeliverScript.medalRest -= requiredPrice;
             ValueDeliverScript.SaveGameData();
             GameObject.Find("OneMoreCount").GetComponent<OneMoreCount>().CountReset();
@@ -175,11 +188,23 @@ public class UiShow : MonoBehaviour
         }
     }
 
+    void AdsFailed()
+    {
+        oneMoreWin.transform.FindChild("FreeFuelButton").gameObject.SetActive(false);
+        oneMoreWin.transform.FindChild("DiamondButton").localPosition = new Vector3(0, -263, 0);
+    }
+
     public void GetFreeFuel()
     {
         GameObject.Find("OneMoreCount").GetComponent<OneMoreCount>().isIntoShop = true;
-        GetComponent<UnityAdsManager>().AbleAds(OneMoreActionYes);
+        GetComponent<UnityAdsManager>().AbleAds(OneMoreActionYes, AdsFailed);
     }
+
+    public void ViewCMFailed()
+    {
+        GameObject.Find("OneMoreCount").GetComponent<OneMoreCount>().isIntoShop = false;
+    }
+
 
 
     IEnumerator ShowBuyDiamondWin()
@@ -272,6 +297,7 @@ public class UiShow : MonoBehaviour
 
     void OneMoreActionYes()
     {
+        rebirthCount++;
         GameObject.Find("FuelSlider").GetComponent<FuelSliderScript>().isFuel = false;
         bgAudioSource.volume = bgVolume;
         StartCoroutine(YesAction());
@@ -394,16 +420,15 @@ public class UiShow : MonoBehaviour
     {
         GameObject count = GameObject.Find("Count");
         float aniLength = count.animation["CountAnim01"].length;
+        count.animation.Play("CountAnim01");
         for (float i = 0; i <= aniLength; i += 0.02f)
         {
             count.animation["CountAnim01"].time = i;
-            count.animation.Play("CountAnim01");
             yield return null;
 
             if (isPauseUi)
             {
                 count.animation["CountAnim01"].time = 0;
-                count.animation.Play("CountAnim01");
                 isPauseUi = false;
                 yield break;
             }

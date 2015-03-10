@@ -31020,7 +31020,7 @@ Transform:
   m_GameObject: {fileID: 455367313}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 288, y: 94, z: 1}
+  m_LocalScale: {x: 336.799988, y: 94, z: 1}
   m_Children: []
   m_Father: {fileID: 1845243178}
   m_RootOrder: 0
@@ -31041,7 +31041,7 @@ MonoBehaviour:
   mPivot: 4
   mDepth: 50
   mAtlas: {fileID: 11400000, guid: 20d4c50ba724b404fb492f5b19abbc11, type: 2}
-  mSpriteName: Btn_GreenLarge_00
+  mSpriteName: Btn_YellowLarge_00
 --- !u!1 &456292145
 GameObject:
   m_ObjectHideFlags: 0
@@ -128519,9 +128519,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 455367315}
-  normalSprite: Btn_GreenLarge_00
-  hoverSprite: Btn_GreenLarge_00
-  pressedSprite: Btn_GreenLarge_01
+  normalSprite: Btn_YellowLarge_00
+  hoverSprite: Btn_YellowLarge_00
+  pressedSprite: Btn_YellowLarge_01
 --- !u!65 &1845243182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -128532,8 +128532,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 288.001099, y: 94, z: 0}
-  m_Center: {x: .000610351562, y: 0, z: -1.25}
+  m_Size: {x: 698.057556, y: 94.0074997, z: 0}
+  m_Center: {x: .000457763672, y: -1.14440918e-05, z: -12.75}
 --- !u!1 &1846669857
 GameObject:
   m_ObjectHideFlags: 0
@@ -130092,7 +130092,7 @@ Transform:
   m_GameObject: {fileID: 1853492829}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -.5, z: 0}
-  m_LocalScale: {x: 31, y: 31, z: 1}
+  m_LocalScale: {x: 40, y: 40, z: 1}
   m_Children: []
   m_Father: {fileID: 1845243178}
   m_RootOrder: 1
@@ -130109,17 +130109,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mMat: {fileID: 2100000, guid: 4f19a5aa42466c341933f62b1ae9b15d, type: 2}
   mTex: {fileID: 0}
-  mColor: {r: .745098054, g: 1, b: 1, a: 1}
+  mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
   mDepth: 1
   mFont: {fileID: 11400000, guid: 279e8f65e75bb724d99b8b537ed2ece9, type: 2}
-  mText: Get a Fuel for Free
+  mText: Continue for Free
   mMaxLineWidth: 698
   mEncoding: 1
   mMaxLineCount: 0
   mPassword: 0
   mShowLastChar: 0
-  mEffectStyle: 2
+  mEffectStyle: 0
   mEffectColor: {r: 0, g: 0, b: 0, a: .501960814}
   mSymbols: 1
   mEffectDistance: {x: 2, y: 2}

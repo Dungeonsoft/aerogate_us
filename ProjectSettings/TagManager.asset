@@ -26,7 +26,7 @@ TagManager:
   - Coin10
   - Bomb
   - Bomb01
-  - 
+  - LevelChangeBomb
   - 
   - 
   - 
@@ -70,6 +70,8 @@ TagManager:
   - Bomb02
   - PcLaser
   - seed
+  - 
+  - LevelchangeBomb
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

@@ -1515,7 +1515,7 @@ public class JoywingServerScript : MonoBehaviour
 
         wwwResult = www.text;
 
-        if (wwwResult == ValueDeliverScript.ver)
+        if (int.Parse(wwwResult) <= int.Parse(ValueDeliverScript.ver))
         {
             //Debug.Log("<<<<<<<<<<<<<<<<<   Version Check Complete    >>>>>>>>>>>>>>>");
         }

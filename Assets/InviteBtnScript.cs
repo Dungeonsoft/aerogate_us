@@ -5,6 +5,7 @@ public class InviteBtnScript : MonoBehaviour {
 
     GameObject serverLoadingPanel;
     GameObject friendInvite;
+    public GameObject noFbLoginWindow;
     bool isNetwork = false;
 
     void Awake()
@@ -15,6 +16,13 @@ public class InviteBtnScript : MonoBehaviour {
 
     void InviteFriend()
     {
+        if (ValueDeliverScript.myFBid == "" || ValueDeliverScript.myFBid == null)
+        {
+            GetComponent<HangarPopupController>().AddPopWin(noFbLoginWindow, 0);
+
+            return;
+        }
+
         Debug.Log("친구초대 시작");
         GameObject.Find("FacebookLogin").GetComponent<FaceBookUseScript>().OpenFriendSelector();
         serverLoadingPanel.SetActive(true);

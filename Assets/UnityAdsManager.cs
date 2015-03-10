@@ -24,10 +24,14 @@ public class UnityAdsManager : MonoBehaviour {
     }
 
 
-    public void AbleAds(System.Action SucceessF = null)
+    public void AbleAds(System.Action SucceessF = null , System.Action FailF =null)
     {
+        Debug.Log("옴01");
         if (Advertisement.isReady() == true)
         {
+            Debug.Log("옴02");
+            FailF();
+            Debug.Log("옴03");
 
             Advertisement.Show(null, new ShowOptions
             {
@@ -35,9 +39,13 @@ public class UnityAdsManager : MonoBehaviour {
                 resultCallback = result =>
                 {
                     Debug.Log(result.ToString());
-                    if (result.ToString() == "Finished")
+                    if (result == ShowResult.Finished)
                     {
                         SucceessF();
+                    }
+                    else if(result == ShowResult.Failed || result == ShowResult.Skipped)
+                    {
+                        FailF();
                     }
                 }
             });
